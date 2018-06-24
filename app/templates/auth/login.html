@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    <form method="POST" action="{{ url_for('auth.login') }}">
+        {{ form.hidden_tag() }}
+        {{ form.email.label }} {{ form.email() }}
+        {{ form.password.label }} {{ form.password() }}
+        {{ form.remember_me.label }} {{ form.remember_me() }}
+        {{ form.submit() }}
+    </form>
+    {% for message in get_flashed_messages() %}
+        {{ message }}
+    {% endfor %}
+{% endblock %}
